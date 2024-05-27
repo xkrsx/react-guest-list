@@ -1,0 +1,25 @@
+.section {
+  background-color: var(--second-color);
+  height: 10rem;
+  border-radius: var(--border-radius);
+
+  .Form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 1rem;
+    margin: 1rem;
+  }
+
+  label {
+    color: var(--third-color);
+    font-size: 1.2rem;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: var(--fourth-color);
+  }
+}

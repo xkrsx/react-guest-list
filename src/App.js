@@ -1,7 +1,7 @@
 import './App.scss';
 import Footer from './components/common/Footer';
-import Form from './components/common/Form';
 import Header from './components/common/Header';
+import Form from './components/Form';
 import Main from './components/Main';
 
 export default function App() {

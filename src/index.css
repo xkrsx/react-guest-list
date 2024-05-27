@@ -30,8 +30,19 @@
 @layer theme {
   body {
     font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--fourth-color);
   }
 }
+
+:root {
+  --first-color: #1d3557;
+  --second-color: #457b9d;
+  --third-color: #a8dadc;
+  --fourth-color: #f1faee;
+  --fifth-color: #e63946;
+  --border-radius: 1rem;
+}
+
 /*
 :root {
   --container-width: 70 rem;
