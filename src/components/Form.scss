@@ -43,6 +43,7 @@
     &:hover {
       background-color: color-mix(in srgb, currentColor 25%, transparent 100%);
       color: var(--third-color);
+      cursor: pointer;
     }
   }
 

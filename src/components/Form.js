@@ -1,4 +1,5 @@
 import './Form.scss';
+import RemoveAllGuests from './RemoveAllGuests';
 
 export default function Form({
   addOnSubmit,
@@ -24,7 +25,7 @@ export default function Form({
   return (
     <div className="section">
       <form className="Form" onSubmit={(event) => event.preventDefault()}>
-        <h2>Add new guest</h2>
+        <h2>Add a new guest</h2>
         <label>
           First name{' '}
           <input
@@ -44,18 +45,20 @@ export default function Form({
             onKeyDown={handleKeyDown}
           />
         </label>
+        <button
+          onClick={() => {
+            addOnSubmit().catch((error) => console.log(error));
+          }}
+          className="add"
+        >
+          Add new guest
+        </button>
         <div className="form-buttons">
           <button onClick={onRemoveClick} className="remove">
             Clear the form
           </button>
-          <button
-            onClick={() => {
-              addOnSubmit().catch((error) => console.log(error));
-            }}
-            className="add"
-          >
-            Add new guest
-          </button>
+
+          <RemoveAllGuests />
         </div>
       </form>
     </div>

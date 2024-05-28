@@ -10,27 +10,6 @@
     margin-bottom: 1rem;
     border: 1px solid black;
     border-radius: var(--border-radius);
-
-    .guests-table {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      width: 100%;
-
-      .single-guest {
-        width: 33%;
-        // border: 1px dotted black;
-        border-radius: var(--border-radius);
-
-        &:nth-child(odd) {
-          background-color: var(--third-color);
-        }
-
-        ul {
-          list-style: none;
-        }
-      }
-    }
   }
 
   button {
@@ -43,6 +22,7 @@
 
     &:hover {
       background-color: color-mix(in srgb, currentColor 100%, transparent 95%);
+      cursor: pointer;
     }
   }
 

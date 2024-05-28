@@ -1,0 +1,36 @@
+.guests-table {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
+  justify-content: space-around;
+  width: 100%;
+
+  .single-guest {
+    display: flex;
+    justify-content: space-around;
+    width: 33%;
+    border-radius: var(--border-radius);
+
+    &:nth-child(odd) {
+      background-color: var(--third-color);
+    }
+    &:nth-child(even) {
+      border: 1px solid var(--);
+    }
+
+    .guest-info {
+      width: 50%;
+      ul {
+        list-style: none;
+      }
+    }
+    .guest-buttons {
+      width: 50%;
+      margin: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      row-gap: 0.5rem;
+    }
+  }
+}
