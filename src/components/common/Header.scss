@@ -2,11 +2,9 @@ div {
   display: flex;
   justify-content: center;
   align-items: center;
-  // height: 2rem;
-  padding: 1rem;
-  height: 3rem;
 
   h1 {
+    margin: 1rem;
     color: var(--first-color);
     font-size: 2rem;
   }

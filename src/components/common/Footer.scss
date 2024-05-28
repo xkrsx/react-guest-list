@@ -2,8 +2,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 2rem;
-  padding: 1rem auto;
+  height: 3rem;
+
+  width: 95%;
   border-radius: var(--border-radius);
   background-color: var(--first-color);
 
@@ -15,6 +16,11 @@
     a {
       text-decoration: none;
       color: var(--fourth-color);
+      transition: var(--transition);
+
+      &:hover {
+        color: color-mix(in srgb, currentColor 100%, transparent 95%);
+      }
     }
   }
 }
