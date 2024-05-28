@@ -28,7 +28,7 @@ export default function App() {
     fetchGuests().catch((error) => {
       console.log(error);
     });
-  });
+  }, []);
 
   function clearForm() {
     setNewGuest({ firstName: '', lastName: '', attending: 0 });
@@ -46,6 +46,9 @@ export default function App() {
     console.log('API: ', createdGuest);
 
     clearForm();
+    fetchGuests().catch((error) => {
+      console.log(error);
+    });
   }
 
   return (
@@ -58,7 +61,11 @@ export default function App() {
         newGuest={newGuest}
         onChange={setNewGuest}
       />
-      <Main guests={guests} isLoading={isLoading} />
+      <Main
+        guests={guests}
+        isLoading={isLoading}
+        renderOnSubmit={fetchGuests}
+      />
       <Footer />
     </div>
   );

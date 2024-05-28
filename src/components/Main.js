@@ -2,7 +2,7 @@ import './Main.scss';
 import Loading from './common/Loading';
 import SingleGuest from './common/SingleGuest';
 
-export default function Main({ guests, isLoading }) {
+export default function Main({ guests, isLoading, renderOnSubmit }) {
   if (isLoading) {
     return <Loading>Loading...</Loading>;
   }
@@ -15,9 +15,11 @@ export default function Main({ guests, isLoading }) {
             return (
               <SingleGuest
                 key={`guest-${guest.id}`}
+                id={guest.id}
                 firstName={guest.firstName}
                 lastName={guest.lastName}
                 attending={guest.attending}
+                renderOnSubmit={renderOnSubmit}
               />
             );
           })}

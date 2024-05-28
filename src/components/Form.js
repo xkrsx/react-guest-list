@@ -45,6 +45,9 @@ export default function Form({
             onKeyDown={handleKeyDown}
           />
         </label>
+      </form>
+
+      <div className="form-buttons">
         <button
           onClick={() => {
             addOnSubmit().catch((error) => console.log(error));
@@ -53,14 +56,12 @@ export default function Form({
         >
           Add new guest
         </button>
-        <div className="form-buttons">
-          <button onClick={onRemoveClick} className="remove">
-            Clear the form
-          </button>
+        <button onClick={onRemoveClick} className="remove small">
+          Clear the form
+        </button>
 
-          <RemoveAllGuests />
-        </div>
-      </form>
+        <RemoveAllGuests />
+      </div>
     </div>
   );
 }
