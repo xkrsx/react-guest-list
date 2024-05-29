@@ -5,7 +5,8 @@ export default function SingleGuest({
   firstName,
   lastName,
   attending,
-  renderOnSubmit,
+  setGuests,
+  guests,
 }) {
   async function handleRemove() {
     const response = await fetch(`https://zy99yv-4000.csb.app/guests/${id}`, {
@@ -13,11 +14,12 @@ export default function SingleGuest({
     });
     const deletedGuest = await response.json();
 
-    renderOnSubmit().catch((error) => {
-      console.log(error);
-    });
-    console.log(deletedGuest);
-    return <div>Guest deleted</div>;
+    const updatedGuests = guests.filter(
+      (guest) => guest.id !== deletedGuest.id,
+    );
+    console.log(updatedGuests);
+    // TODO FIX: setGuests is not a function error
+    // setGuests(updatedGuests);
   }
 
   return (

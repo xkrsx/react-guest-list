@@ -43,12 +43,8 @@ export default function App() {
       body: JSON.stringify(newGuest),
     });
     const createdGuest = await response.json();
-    console.log('API: ', createdGuest);
-
     clearForm();
-    fetchGuests().catch((error) => {
-      console.log(error);
-    });
+    setGuests([...guests, createdGuest]);
   }
 
   return (
@@ -65,7 +61,8 @@ export default function App() {
       <Main
         guests={guests}
         isLoading={isLoading}
-        renderOnSubmit={fetchGuests}
+        onRemove={setGuests}
+        // renderOnSubmit={fetchGuests}
       />
       <Footer />
     </div>
