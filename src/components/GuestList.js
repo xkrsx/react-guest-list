@@ -2,7 +2,12 @@ import './Main.scss';
 import Loading from './common/Loading';
 import SingleGuest from './common/SingleGuest';
 
-export default function Main({ guests, isLoading, setGuests }) {
+export default function GuestList({
+  guests,
+  isLoading,
+  setGuests,
+  renderOnSubmit,
+}) {
   if (isLoading) {
     return <Loading>Loading...</Loading>;
   }
@@ -21,7 +26,7 @@ export default function Main({ guests, isLoading, setGuests }) {
                 attending={guest.attending}
                 setGuests={setGuests}
                 guests={guests}
-                // renderOnSubmit={renderOnSubmit}
+                renderOnSubmit={renderOnSubmit}
               />
             );
           })}

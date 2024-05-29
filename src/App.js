@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import Footer from './components/common/Footer';
 import Header from './components/common/Header';
 import Form from './components/Form';
-import Main from './components/Main';
+import GuestList from './components/GuestList';
 
 export default function App() {
   const [guests, setGuests] = useState([]);
@@ -49,7 +49,9 @@ export default function App() {
 
   return (
     <div className="App">
-      <Header>React Guest List</Header>
+      <Header>
+        <h1>React Guest List</h1>
+      </Header>
       <Form
         addOnSubmit={addNewGuest}
         renderOnSubmit={fetchGuests}
@@ -58,11 +60,11 @@ export default function App() {
         onChange={setNewGuest}
         isLoading={isLoading}
       />
-      <Main
+      <GuestList
         guests={guests}
         isLoading={isLoading}
         onRemove={setGuests}
-        // renderOnSubmit={fetchGuests}
+        renderOnSubmit={fetchGuests}
       />
       <Footer />
     </div>
