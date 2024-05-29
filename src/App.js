@@ -60,6 +60,7 @@ export default function App() {
         onRemoveClick={clearForm}
         newGuest={newGuest}
         onChange={setNewGuest}
+        isLoading={isLoading}
       />
       <Main
         guests={guests}

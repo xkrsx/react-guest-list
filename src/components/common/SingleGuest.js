@@ -16,7 +16,7 @@ export default function SingleGuest({
     renderOnSubmit().catch((error) => {
       console.log(error);
     });
-
+    console.log(deletedGuest);
     return <div>Guest deleted</div>;
   }
 
@@ -26,14 +26,16 @@ export default function SingleGuest({
         <ul>
           <li>
             First name: {}
-            {firstName}
+            <strong>{firstName}</strong>
           </li>
           <li>
             Last name: {}
-            {lastName}
+            <strong>{lastName}</strong>
           </li>
           <li>
-            Attending? {}
+            <div className="attending">
+              <input type="checkbox" /> attending
+            </div>
             {attending}
           </li>
         </ul>

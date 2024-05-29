@@ -6,6 +6,7 @@ export default function Form({
   onRemoveClick,
   newGuest,
   onChange,
+  isLoading,
 }) {
   function handleKeyDown(event) {
     if (event.keyCode === 13) {
@@ -33,6 +34,7 @@ export default function Form({
             name="firstName"
             value={newGuest.firstName}
             onChange={handleChange}
+            disabled={isLoading}
           />
         </label>
         <label>
@@ -43,6 +45,7 @@ export default function Form({
             value={newGuest.lastName}
             onChange={handleChange}
             onKeyDown={handleKeyDown}
+            disabled={isLoading}
           />
         </label>
       </form>
@@ -53,6 +56,7 @@ export default function Form({
             addOnSubmit().catch((error) => console.log(error));
           }}
           className="add"
+          disabled={isLoading}
         >
           Add new guest
         </button>
