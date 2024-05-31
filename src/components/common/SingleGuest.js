@@ -7,7 +7,6 @@ export default function SingleGuest({
   lastName,
   attending,
   renderOnSubmit,
-  // guests,
 }) {
   const [deletedGuestInfo, setDeletedGuestInfo] = useState({
     display: 0,
@@ -60,26 +59,39 @@ export default function SingleGuest({
     }
   }
 
-  function handleEdit() {
+  function handleEditClick() {
     if (!editGuest.display) {
       setEditGuest({ display: 1 });
     }
   }
 
-  function saveGuestButton() {
+  function handleChange(event) {
+    const value = event.target.value;
+
+    setEditGuest({
+      ...editGuest,
+      [event.target.name]: value,
+    });
+  }
+
+  async function saveGuestButton() {
     if (editGuest.display) {
-      //   const response = await fetch(`https://zy99yv-4000.csb.app/guests/${id}`, {
-      //     method: 'PUT',
-      //     headers: {
-      //       'Content-Type': 'application/json',
-      //     },
-      //     body: JSON.stringify({
-      //       // TODO send user changes to API
-      //     }),
-      //   });
-      //   const updatedGuest = await response.json();
+      // const response =
+      await fetch(`https://zy99yv-4000.csb.app/guests/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName: editGuest.firstName,
+          lastName: editGuest.lastName,
+          attending: editGuest.attending,
+        }),
+      });
+      // const updatedGuest = await response.json();
 
       setEditGuest({ display: 0 });
+      renderOnSubmit();
     }
   }
 
@@ -104,59 +116,74 @@ export default function SingleGuest({
           </button>
         </div>
       ) : (
-        <form onSubmit={(event) => event.preventDefault()}>
+        <form
+          onSubmit={(event) => event.preventDefault()}
+          className="edit-guest-form"
+        >
           <div className="guest-info">
-            <ul>
-              {!editGuest.display ? (
-                <>
-                  <li>
-                    First name: <strong>{firstName}</strong>
-                  </li>
-                  <li>
-                    Last name: <strong>{lastName}</strong>
-                  </li>
-                </>
-              ) : (
-                <>
+            {!editGuest.display ? (
+              <ul>
+                <li>
+                  First name: <strong>{firstName}</strong>
+                </li>
+                <li>
+                  Last name: <strong>{lastName}</strong>
+                </li>
+              </ul>
+            ) : (
+              <ul>
+                <li>
                   <label>
                     First name:
-                    <input />
+                    <input
+                      required
+                      name="firstName"
+                      value={editGuest.firstName}
+                      onChange={handleChange}
+                    />
                   </label>
+                </li>
+                <li>
                   <label>
                     Last name:
-                    <input />
+                    <input
+                      required
+                      name="lastName"
+                      value={editGuest.lastName}
+                      onChange={handleChange}
+                    />
                   </label>
-                </>
-              )}
-
-              <li>
-                <div className="attending">
-                  {/* TODO add functionality */}
-                  <input
-                    type="checkbox"
-                    name="attending"
-                    checked={attending}
-                    onChange={handleAttending}
-                  />{' '}
-                  attending
-                </div>
-                {attending}
-              </li>
-            </ul>
-          </div>
-          <div className="guest-buttons">
-            {!editGuest.display ? (
-              <button onClick={handleEdit} className="small">
-                Edit guest
-              </button>
-            ) : (
-              <button className="small" onClick={saveGuestButton}>
-                Save guest
-              </button>
+                </li>
+              </ul>
             )}
-            <button onClick={handleRemove} className="remove small">
-              Remove guest
-            </button>
+          </div>
+
+          <div className="attend-buttons">
+            <div className="attending">
+              <input
+                type="checkbox"
+                name="attending"
+                checked={attending}
+                onChange={handleAttending}
+              />{' '}
+              attending
+              {attending}
+            </div>
+
+            <div className="guest-buttons">
+              {!editGuest.display ? (
+                <button onClick={handleEditClick} className="small">
+                  Edit guest
+                </button>
+              ) : (
+                <button className="small" onClick={saveGuestButton}>
+                  Save guest
+                </button>
+              )}
+              <button onClick={handleRemove} className="remove small">
+                Remove guest
+              </button>
+            </div>
           </div>
         </form>
       )}
