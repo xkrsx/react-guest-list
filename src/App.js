@@ -11,7 +11,7 @@ export default function App() {
   const [newGuest, setNewGuest] = useState({
     firstName: '',
     lastName: '',
-    attending: 0,
+    attending: false,
   });
 
   async function fetchGuests() {
@@ -43,8 +43,14 @@ export default function App() {
       body: JSON.stringify(newGuest),
     });
     const createdGuest = await response.json();
-    clearForm();
+    if (newGuest.firstName === '') {
+      return;
+    }
+    if (newGuest.lastName === '') {
+      return;
+    }
     setGuests([...guests, createdGuest]);
+    clearForm();
   }
 
   return (
