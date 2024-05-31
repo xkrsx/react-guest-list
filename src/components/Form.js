@@ -7,6 +7,7 @@ export default function Form({
   newGuest,
   onChange,
   isLoading,
+  renderOnSubmit,
 }) {
   // function handleKeyDown(event) {
   //   if (event.keyCode === 13) {
@@ -69,7 +70,7 @@ export default function Form({
           Clear the form
         </button>
 
-        <RemoveAllGuests />
+        <RemoveAllGuests renderOnSubmit={renderOnSubmit} />
       </div>
     </div>
   );

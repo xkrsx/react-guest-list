@@ -1,4 +1,4 @@
-import './Main.scss';
+import './GuestList.scss';
 import Loading from './common/Loading';
 import SingleGuest from './common/SingleGuest';
 
