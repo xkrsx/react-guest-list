@@ -1,0 +1,26 @@
+.Footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+
+  width: 95%;
+  border-radius: var(--border-radius);
+  background-color: var(--first-color);
+
+  span {
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: var(--third-color);
+    a {
+      text-decoration: none;
+      color: var(--fourth-color);
+      transition: var(--transition);
+
+      &:hover {
+        color: color-mix(in srgb, currentColor 100%, transparent 95%);
+      }
+    }
+  }
+}

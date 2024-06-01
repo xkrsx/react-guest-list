@@ -1,0 +1,11 @@
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    margin: 1rem;
+    color: var(--first-color);
+    font-size: 2rem;
+  }
+}

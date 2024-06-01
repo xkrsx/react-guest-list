@@ -1,0 +1,57 @@
+.guests-table {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
+  justify-content: space-evenly;
+  width: 100%;
+
+  .single-guest {
+    width: 33%;
+    height: 15rem;
+    border-radius: var(--border-radius);
+    background-color: var(--third-color);
+    border: 1px dashed black;
+
+    .edit-guest-form {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+    .guest-info {
+      display: flex;
+      justify-content: flex-start;
+      align-items: last baseline;
+      // padding-left:;
+      height: 80px;
+
+      ul {
+        list-style: none;
+
+        li {
+          display: flex;
+          justify-content: space-around;
+          margin-bottom: 0.2rem;
+
+          input {
+            width: 7rem;
+          }
+        }
+      }
+    }
+    .attend-buttons {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .guest-buttons {
+      // width: 45%;
+      margin: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      row-gap: 0.5rem;
+    }
+  }
+}

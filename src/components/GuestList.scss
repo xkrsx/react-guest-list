@@ -1,0 +1,37 @@
+.Main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 1rem;
+
+  .guests-list {
+    width: 95%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid black;
+    border-radius: var(--border-radius);
+  }
+
+  button {
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    border: 1px solid transparent;
+    color: var(--first-color);
+    font-size: 1rem;
+    transition: var(--transition);
+
+    &:hover {
+      background-color: color-mix(in srgb, currentColor 100%, transparent 95%);
+      cursor: pointer;
+    }
+  }
+
+  .remove {
+    background-color: var(--fifth-color);
+  }
+  .small {
+    padding: 0.5rem 1rem;
+    font-size: 0.7rem;
+    border-radius: calc(var(--border-radius) / 2);
+  }
+}
