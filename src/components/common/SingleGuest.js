@@ -88,21 +88,14 @@ export default function SingleGuest({
           attending: editGuest.attending,
         }),
       });
-      // const updatedGuest = await response.json();
 
       setEditGuest({ display: 0 });
       renderOnSubmit();
     }
   }
 
-  // TODO? change re-render to refreshing state-based array of guests
-  // const updatedGuests = guests.filter(
-  //   (guest) => guest.id !== deletedGuest.id,
-  // );
-  // setGuests(updatedGuests);
-
   return (
-    <div className="single-guest">
+    <div className="single-guest" data-test-id="guest">
       {deletedGuestInfo.display ? (
         <div className="guest-info">
           <span>
@@ -165,6 +158,7 @@ export default function SingleGuest({
                 name="attending"
                 checked={attending}
                 onChange={handleAttending}
+                aria-label="attending"
               />{' '}
               attending
               {attending}
@@ -180,7 +174,11 @@ export default function SingleGuest({
                   Save guest
                 </button>
               )}
-              <button onClick={handleRemove} className="remove small">
+              <button
+                onClick={handleRemove}
+                aria-label="Remove"
+                className="remove small"
+              >
                 Remove guest
               </button>
             </div>
