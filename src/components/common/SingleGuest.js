@@ -31,6 +31,9 @@ export default function SingleGuest({
       firstName: deletedGuest.firstName,
       lastName: deletedGuest.lastName,
     });
+    setTimeout(() => {
+      renderOnSubmit();
+    }, 1000);
   }
 
   async function handleAttending(event) {
@@ -161,7 +164,6 @@ export default function SingleGuest({
                 aria-label="attending"
               />{' '}
               attending
-              {attending}
             </div>
 
             <div className="guest-buttons">

@@ -9,21 +9,19 @@ export default function RemoveAllGuests({ renderOnSubmit }) {
     const allGuestsId = allGuests.map((guest) => {
       return guest.id;
     });
-    async function removeAllGuestsById() {
-      await allGuestsId.map(async (id) => {
-        try {
-          return await fetch(`https://zy99yv-4000.csb.app/guests/${id}`, {
-            method: 'DELETE',
-          });
-        } catch (error) {
-          console.log(error);
-        }
+    function removeAllGuestsById() {
+      allGuestsId.map(async (id) => {
+        await fetch(`https://zy99yv-4000.csb.app/guests/${id}`, {
+          method: 'DELETE',
+        });
       });
-      renderOnSubmit();
     }
-    removeAllGuestsById().catch((error) => {
-      console.log(error);
-    });
+
+    removeAllGuestsById();
+
+    setTimeout(() => {
+      renderOnSubmit();
+    }, 500);
   }
 
   return (
