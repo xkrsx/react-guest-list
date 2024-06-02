@@ -1,4 +1,5 @@
 # React Guest List
+<img width="1401" alt="Screenshot 2024-06-02 at 16 39 29" src="https://github.com/xkrsx/react-guest-list/assets/98549349/7a14f190-2d75-474d-b96b-a61bb07f57b1">
 
 A simple app, using external [API](https://zy99yv-4000.csb.app/guests/) [GitHub Repo](https://github.com/xkrsx/express-guest-list-api-memory-data-store), letting user to create their guest list.
 
