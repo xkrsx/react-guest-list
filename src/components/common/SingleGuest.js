@@ -31,9 +31,10 @@ export default function SingleGuest({
       firstName: deletedGuest.firstName,
       lastName: deletedGuest.lastName,
     });
-    setTimeout(() => {
-      renderOnSubmit();
-    }, 1000);
+    renderOnSubmit();
+    // setTimeout(() => {
+    //   renderOnSubmit();
+    // }, 1000);
   }
 
   async function handleAttending(event) {
